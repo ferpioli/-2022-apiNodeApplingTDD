@@ -6,6 +6,7 @@ module.exports = (app) => {
   const save = (user) => {
     if (!user.name) return { error: 'Nome é atributo obrigatorio' }
     if (!user.mail) return { error: 'Email é atributo obrigatorio' }
+    if (!user.passwd) return { error: 'Senha é atributo obrigatorio' }
     return app.db('users').insert(user, '*')
   }
   return { findAll, save }
