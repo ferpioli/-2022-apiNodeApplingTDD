@@ -3,6 +3,7 @@ module.exports = (app) => {
     .get(app.routes.users.findAll)
     .post(app.routes.users.create)
 
-  app.route('/accounts')  
+  app.route('/accounts')
+    .get(app.routes.accounts.getAll)
     .post(app.routes.accounts.create)
 }

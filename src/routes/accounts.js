@@ -5,5 +5,9 @@ module.exports = (app) => {
         return res.status(201).json(result[0])
       })
   }
-  return { create }
+  const getAll = (req, res) => {
+    app.services.account.findAll()
+      .then((result) => res.status(200).json(result))
+  }
+  return { create, getAll }
 }
