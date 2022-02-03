@@ -51,11 +51,12 @@ test('Não deve inserir usuario sem senha', (done) => {
     .catch((err) => done.fail(err))
 })
 
-test('Não deve inserir usuario com email existente', () => {
+test.skip('Não deve inserir usuario com email existente', () => {
   return request(app).post('/users')
     .send({ name: 'Luiz de Camôes', mail, passwd: '123456' })
     .then((res) => {
       expect(res.status).toBe(400)
       expect(res.body.error).toBe('Já existe um usuario com este e-mail')
+      console.log(`email${mail}`)
     })
 })
